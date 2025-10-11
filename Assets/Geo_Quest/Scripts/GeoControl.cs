@@ -1,20 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GeoControl : MonoBehaviour
 {
+    public string variable0 = "Geo_Quest_Scene_2";
     int Bread = 5;
-    int variable1= 0;
+    int variable1 = 0;
     string World = "Hello";  // Start is called before the first frame update
     private Rigidbody2D rb;
 
     void Start()
     {
         string variable2 = "World";
-        Debug.Log(World+Bread);
+        Debug.Log(World + Bread);
         rb = GetComponent<Rigidbody2D>();
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        switch (collision.tag)
+        {
+            case "Death":
+                {
+                    string thisLevel = SceneManager.GetActiveScene().name;
+                    SceneManager.LoadScene(thisLevel);
+                    break;
+                }
+            case "Finish":
+                {
+                    SceneManager.LoadScene(variable0);
+
+                    break;
+                }
+        }
+    }
+   
+
+
 
     // Update is called once per frame
     void Update()
