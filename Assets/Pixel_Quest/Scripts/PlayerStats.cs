@@ -33,6 +33,10 @@ public class PlayerStats : MonoBehaviour
 
 
                 }
+                case "Health":
+                {
+                    break;
+                }
 
         }
     }
