@@ -7,6 +7,8 @@ public class PlayerStats : MonoBehaviour
 {
 
     public string nextlevel = "GeoLevel_2";
+    public string nextLevel = "Scene_2";
+    public int CoinCounter = 0;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,10 +25,15 @@ public class PlayerStats : MonoBehaviour
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                     break;
                 }
-
-                void Update()
+            case "Coin":
                 {
+                    CoinCounter++;
+                    Destroy(collision.gameObject);
+                    break;
+
 
                 }
+
         }
-    } } 
+    }
+}
